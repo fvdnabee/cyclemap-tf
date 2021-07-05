@@ -18,3 +18,8 @@ or with underschore in bash to not update the histfile:
 
 ## Destroy
 `terraform destroy`
+
+## Configure DNS CNAME
+* Create a CNAME record for the hostname you want to serve the web frontend on.
+  As the target of the record choose the ALB's DNS name. You can retrieve it
+  via `terraform state show aws_lb.alb`.
