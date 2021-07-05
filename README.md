@@ -28,9 +28,12 @@ If the map service is consulted only sporadically then these shouldn't incur any
 charges during the 12 months free period.
 
 ## Prerequisites
-* Create an s3 bucket that serves as a terraform backend, see https://www.terraform.io/docs/language/settings/backends/s3.html
+* Create an s3 bucket that serves as a terraform backend, see
+  https://www.terraform.io/docs/language/settings/backends/s3.html
 * Create an SSL certificate in AWS ACM for the hostname you want to serve the
   web frontend on and set its arn in locals.tf
+* Create a MONGODB cluster which is reachable from AWS, e.g.
+  https://www.mongodb.com/cloud/atlas
 
 ## Apply
 ### Set mongodb\_uri tf variable
@@ -48,3 +51,6 @@ or with underschore in bash to not update the histfile:
 * Create a CNAME record for the hostname you want to serve the web frontend on.
   As the target of the record choose the ALB's DNS name. You can retrieve it
   via `terraform state show aws_lb.alb`.
+
+## TODO
+* Manage the mongodb atlas M0 cluster from terraform
