@@ -1,0 +1,29 @@
+[
+  {
+    "name": "cyclemap_web",
+    "image": "public.ecr.aws/o0s8a4l2/cyclemap:latest",
+    "cpu": 0,
+    "memory": 254,
+    "environment": [
+      {
+        "name": "MONGODB_URI",
+        "value": "${MONGODB_URI}"
+      }
+    ],
+    "portMappings": [
+      {
+        "hostPort": 8000,
+        "protocol": "tcp",
+        "containerPort": 8000
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "eu-west-1",
+        "awslogs-group": "cyclemap_web",
+        "awslogs-stream-prefix": "complete-ecs"
+      }
+    }
+  }
+]

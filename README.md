@@ -6,6 +6,11 @@ This terraform projects manages the infrastructure for
 * Create an s3 bucket that serves as a terraform backend, see https://www.terraform.io/docs/language/settings/backends/s3.html
 
 ## Apply
+### Set mongodb\_uri tf variable
+Set `mongodb_uri` terraform variable, prefix command with either space in zsh
+or with underschore in bash to not update the histfile:
+ ` export TF_VAR_mongodb_uri=mongodb+srv://user:password@cluster0.7vfqm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+
 ### Apply
 `terraform apply`
 
