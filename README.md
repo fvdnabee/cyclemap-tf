@@ -4,6 +4,8 @@ This terraform projects manages the infrastructure for
 
 ## Prerequisites
 * Create an s3 bucket that serves as a terraform backend, see https://www.terraform.io/docs/language/settings/backends/s3.html
+* Create an SSL certificate in AWS ACM for the hostname you want to serve the
+  web frontend on and set its arn in locals.tf
 
 ## Apply
 ### Set mongodb\_uri tf variable
