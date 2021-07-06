@@ -49,4 +49,6 @@ module "cyclemap" {
   # Set via an env variable:
   # export TF_VAR_username="mongodb://user:password@host/database"
   mongodb_uri = var.mongodb_uri
+
+  lb_target_group_arn = aws_lb_target_group.hypercorn-target-group.arn
 }

@@ -8,3 +8,8 @@ variable "mongodb_uri" {
   type = string
   sensitive = true
 }
+
+variable "lb_target_group_arn" {
+  description = "ARN of the Load Balancer target group to associate with the service"
+  type = string
+}

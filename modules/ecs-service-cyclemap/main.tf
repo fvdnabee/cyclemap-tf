@@ -24,8 +24,14 @@ resource "aws_ecs_service" "cyclemap-web" {
 
   desired_count = 1
 
-  deployment_maximum_percent         = 100
-  deployment_minimum_healthy_percent = 0
+  deployment_maximum_percent         = 200
+  deployment_minimum_healthy_percent = 50
+
+  load_balancer {
+    target_group_arn = var.lb_target_group_arn
+    container_name   = "cyclemap_web"
+    container_port   = 8000
+  }
 
   # Work-around for flip-flopping of `capacity_provider_strategy` in ecs
   # services due to only specifying default_capacity_provider_strategy in

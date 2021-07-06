@@ -92,9 +92,6 @@ module "asg" {
   desired_capacity          = 1
   wait_for_capacity_timeout = 0
 
-  # Application load balancer (ALB)
-  target_group_arns = ["${aws_lb_target_group.hypercorn-target-group.arn}"]
-
   tags = [
     {
       key                 = "Environment"
