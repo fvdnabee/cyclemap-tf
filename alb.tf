@@ -86,6 +86,9 @@ resource "aws_lb_target_group" "hypercorn-target-group" {
   protocol_version = "HTTP2" # hypercorn supports HTTP2
   port             = 8000
   vpc_id           = module.vpc.vpc_id
+  # waiting 60 seconds for a deregistered target to transit from draining to
+  # unused is sufficient (default is 300)
+  deregistration_delay = 60
 
   health_check {
     interval            = 30
