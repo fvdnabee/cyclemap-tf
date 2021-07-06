@@ -5,6 +5,9 @@ locals {
   name        = "cyclemap-tf"
   environment = "prod"
 
+  # The key name that should be used for the ASG launch configuration
+  asg_lc_key_name = "ec2-fvdnabee-fvdnabee-kp"
+
   # This is the convention we use to know what belongs to each other
   ec2_resources_name = "${local.name}-${local.environment}"
 
