@@ -56,7 +56,7 @@ resource "aws_lb_listener" "alb-listener-http" {
   protocol          = "HTTP"
 
   default_action {
-    type             = "redirect"
+    type = "redirect"
     redirect {
       port        = "443"
       protocol    = "HTTPS"
@@ -80,12 +80,12 @@ resource "aws_lb_listener" "alb-listener-https" {
 }
 
 resource "aws_lb_target_group" "hypercorn-target-group" {
-  name             = local.ec2_resources_name
-  target_type      = "instance"
-  protocol         = "HTTP"
-  protocol_version = "HTTP2" # hypercorn supports HTTP2
-  port             = 8000
-  vpc_id           = module.vpc.vpc_id
+  name                 = local.ec2_resources_name
+  target_type          = "instance"
+  protocol             = "HTTP"
+  protocol_version     = "HTTP2" # hypercorn supports HTTP2
+  port                 = 8000
+  vpc_id               = module.vpc.vpc_id
   # waiting 60 seconds for a deregistered target to transit from draining to
   # unused is sufficient (default is 300)
   deregistration_delay = 60
